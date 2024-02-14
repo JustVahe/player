@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primaryColor : #151C1CFF;
+    --secondaryColor: #0073C2FF;
+    --thirdColor: #EFF1F3FF;
+    --subTextColor: #6d6d6d;
+}
+
+::-webkit-scrollbar{
+    width: 3px;
+    height: 3px;
+}
+
+::-webkit-scrollbar-track{
+    background: var(--primaryColor);
+}
+
+::-webkit-scrollbar-thumb{
+    background: var(--secondaryColor);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #333;
+}
+
+body{
+    min-height: 100vh;
+    color: var(--thirdColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+}
+
+.container{
+    height: 650px;
+    width: 366px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: var(--thirdColor);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+i{
+    cursor: pointer;
+    transition: all .3s;
+}
+
+i:hover{
+    color: var(--secondaryColor);
+}
+
+i.active{
+    color: var(--secondaryColor);
+}
+
+.top{
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 16px;
+    z-index: 10;
+}
+
+.container.active .top{
+    color: #111;
+}
+
+.coverImage{
+    width: 100%;
+    height: 366px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("../assets/images/img1.webp") no-repeat;
+    background-size: cover;
+    background-position: center ;
+    transform-origin: 0% 0%;
+    transition: all .3s ease-in;
+}
+
+.container.active .coverImage{
+    transform: scale(0.251,0.251);
+    left: 23px;
+    top: 60px;
+    border-radius: 20px;
+    
+}
+
+.playerBody{
+    position: absolute;
+    top: 366px;
+    left: 0;
+    height: 286px;
+    width: 100%;
+    background-color: var(--primaryColor);
+    transition: all .3s;
+}
+
+.container.active .playerBody{
+    height: 470px;
+    left: 0;
+    top: 180px;
+}
+
+
+.listWrapper{
+    height: 425px;
+    width: 100%;
+    overflow: auto;
+    position: absolute;
+    top: 378px;
+    transform-origin: 0% 0%;
+    transition: all .3s;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.1);
+}
+
+.container.active .listWrapper{
+    top: 182px;
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.list{
+    width: 100%;
+    border-spacing: 0px 2px;
+}
+
+.list tr{
+    height: 50px;
+    text-align: center;
+    background-color: var(--primaryColor);
+    transform-origin: 0% 0%;
+    transition: 0.2s;
+}
+
+.list tr:hover{
+    background: var(--subTextColor);
+    color: var(--primaryColor);
+}
+
+.list .title{
+    width: 215px;
+    text-align: left;
+    text-indent: 15px;
+    transition: all .3s;
+}
+
+.list tr:hover .title{
+    padding-left: 5px;
+    width: 210px;
+}
+
+.currentSongTitle{
+    position: absolute;
+    right: 23px;
+    font-size: 14px;
+    bottom: -60px;
+    transition: all .3s;
+}
+
+.container.active .currentSongTitle{
+    bottom: 10px;
+}
+
+.info{
+    position: absolute;
+    left: 23px;
+    top: 400px;
+    width: 320px;
+    transition: all 0.3s;
+}
+
+.info h2{
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.info h3{
+    font-size: 18px;
+    color: var(--subTextColor);
+}
+
+.container.active .info{
+    top: 50px;
+    left: 70px;
+    text-align: left;
+    color: #111;
+    transform: scale(0.65);
+}
+
+.controls{
+    display: flex;
+    gap: 35px;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    width: 100%;
+    height: 35px;
+    position: absolute;
+    bottom: 90px;
+    z-index: 10;
+    transition: all .3s;
+}
+
+.controls #playpause{
+    font-size: 35px;
+}
+
+.container.active .controls{
+    position: absolute;
+    width: 216px;
+    bottom: 4px;
+    left: -44px;
+    transform: scale(0.45);
+}
+
+.moreControls{
+    color: var(--subTextColor);
+    font-size: 15px;
+    height: 45px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    z-index: 20;
+    transition: all .3s;
+}
+
+.container.active .moreControls{
+    bottom: -60px;
+}
+
+.bar{
+    position: relative;
+    width: 320px;
+    height: 4px;
+    border-radius: 2px;
+    top: 500px;
+    left: 50px;
+    left: 23px;
+    transform-origin: 0% 0%;
+    background-color: #fff;
+    transition: all .3s;
+}
+
+.container.active .bar{
+    top: 119px;
+    left: 126px;
+    color: #111;
+    background-color:#111;
+    transform: scale(0.6875);
+}
+
+.bar .dot{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--secondaryColor);
+    position: absolute;
+    top: -4px;
+    left: 0;
+    user-select: none;
+    pointer-events: none;
+    transition: all .3s;
+}
+
+.bar .time{
+    width: 100%;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    user-select: none;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all .3s;
+}
